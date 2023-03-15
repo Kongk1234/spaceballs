@@ -1,7 +1,55 @@
-{{page-title "Spaceballs"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<head>
+    {{!-- Meta tags --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
 
-{{outlet}}
+    {{!-- Favicon and title --}}
+    <link rel="icon" href="path/to/fav.png">
+
+    {{!-- Halfmoon CSS --}}
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/carousel.css">
+    <script src="https://kit.fontawesome.com/53664ac36e.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true"
+    data-set-preferred-mode-onload="true">
+    {{!-- Modals go here --}}
+
+    {{!-- Page wrapper start --}}
+    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="full-height overlayed-sm-and-down">
+
+        {{!-- Navbar start --}}
+        <nav class="navbar">
+            <Navigation>
+            </Navigation>
+        </nav>
+        {{!-- Navbar end --}}
+
+        {{!-- Sidebar overlay --}}
+        <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+
+        {{!-- Sidebar start --}}
+        <div class="sidebar">
+        </div>
+        {{!-- Sidebar end --}}
+
+        {{!-- Content wrapper start --}}
+        <div class="content-wrapper">
+            {{outlet}}
+            <hr>
+            <Footer></Footer>
+        </div>
+        {{!-- Content wrapper end --}}
+
+    </div>
+    {{!-- Page wrapper end --}}
+
+    {{!-- Halfmoon JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+</body>
+
+{{!-- {{blog-post}} --}}
