@@ -1,4 +1,22 @@
 {{page-title "Index"}}
-<Carousel></Carousel>
-        <Product @products={{@model}}/>
+
+<style>
+        /* Header/Logo Title */
+.header {
+    padding: 60px;
+    text-align: center;
+    background-image: url("https://i.ytimg.com/vi/hQULgpe_wcY/maxresdefault.jpg" );
+    color: white;
+    font-size: 30px;
+  }
+  
+  /* Page Content */
+  .content {padding:20px;}
+</style>
+<link rel="stylesheet" href="../styles/banner.css">
+<div class="header">
+        <h1>SPACEBALLS WEBSHOP</h1>
+        <p>Alt som set i filmen</p>
+</div>
+<Product @products={{@model}} />
 {{outlet}}
