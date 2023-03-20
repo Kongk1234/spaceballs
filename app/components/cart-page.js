@@ -14,12 +14,17 @@ export default class NavigationComponent extends Component {
   @tracked cartNumber;
   @tracked date;
   @tracked controlNumber;
-
   async model() {
     return this.cart.items;
   }
 
   @action async onPayment() {
+    let totalprice = 0
+
+    this.cart.items.forEach(element => {
+      totalprice+= element.item.price  * element.item.amount
+    });
+
     console.log(this.firstName);
     const data = {
       firstname: this.firstName,
@@ -31,6 +36,7 @@ export default class NavigationComponent extends Component {
       date: this.date,
       controlNumber: this.controlNumber,
       products: this.cart.items,
+      totalprice: parseFloat(totalprice)
     };
     console.log(data);
     // const response = await fetch(

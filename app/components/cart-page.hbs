@@ -14,7 +14,7 @@
                 <div class="col-6">
                     <div class="card">
                         {{#each @products as |product|}}
-                        <p>Antal: {{product.amount}} | Navn: {{product.item.name}} | Størrelse: {{product.size}}</p>
+                        <p>Antal: {{product.amount}} | Navn: {{product.item.name}} | Størrelse: {{product.size}} | Enkelt pris:{{product.item.price}}</p>
                         <hr>
                         {{/each}}
                     </div>
