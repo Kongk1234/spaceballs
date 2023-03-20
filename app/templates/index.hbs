@@ -1,4 +1,6 @@
 {{page-title "Index"}}
 <Carousel></Carousel>
-<Product></Product>
+    {{#each @model as |item|}}
+        <Product @products={{item}}/>
+    {{/each}}
 {{outlet}}

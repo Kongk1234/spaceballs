@@ -8,13 +8,25 @@
 </LinkTo>
 
 <ul class="navbar-nav ml-auto">
-    {{!-- <li class="nav-item">
-        <LinkTo @route="CreateRizzipe" class="button nav-link">Create Rizzipe</LinkTo>
-    </li>
-    <li class="nav-item">   
-        <LinkTo @route="Login" class="button nav-link">Logged in</LinkTo>
-    </li>
-    <li class="nav-item">   
-        <LinkTo @route="Login" class="button nav-link">Login</LinkTo>
-    </li> --}}
+    <!-- Dropdown that can be toggled by both hover and clicks on the toggle -->
+    <div class="dropdown toggle-on-hover">
+    <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
+        Kurv <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true" style="visibility:hidden;"> hallloooo</i> <!-- ml-5 = margin-left: 0.5rem (5px) -->
+    </button>
+    <div class="dropdown-menu" aria-labelledby="...">
+        <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
+            <h6 class="dropdown-header">Header</h6>
+                {{#each this.cart.itemList as |item|}}
+                    <div>
+                        <a href="#" class="dropdown-item">{{item.name}}</a>
+                    </div>
+                {{/each}}
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-content">
+                <button class="btn btn-block" type="button">Button</button>
+            </div>
+        </div>
+        </div>
+    </div>
 </ul>
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.js"></script>

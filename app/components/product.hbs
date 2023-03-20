@@ -1,7 +1,8 @@
 <div class="product">
+    <p>{{@products.category_id}}</p>
     <div class="card w-400">
         <img src="..." class="img-fluid" alt="responsive image">
-        <LinkTo @route="productPage" @query={{hash id=1}} class="button nav-link">Title</LinkTo>
-        <p>Pris</p>
+        <LinkTo @route="productPage" @query={{hash id=@products.id}} class="button nav-link">{{@products.name}}</LinkTo>
+        <p>{{@products.price}}</p>
     </div>
 </div>
