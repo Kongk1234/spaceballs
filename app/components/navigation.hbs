@@ -3,23 +3,27 @@
 <ul class="navbar-nav ml-auto">
     {{!-- Dropdown that can be toggled by both hover and clicks on the toggle --}}
     <div class="dropdown toggle-on-hover">
-    <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
-        Kurv <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true" style="visibility:hidden;"> hallloooo</i> {{!-- ml-5 = margin-left: 0.5rem (5px) --}}
-    </button>
-    <div class="dropdown-menu" aria-labelledby="...">
-        <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
-            <h6 class="dropdown-header">Kurv</h6>
+        <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
+            Kurv <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true"
+                style="visibility:hidden;"> halllo0000000000000000000000000ooo</i> {{!-- ml-5 = margin-left: 0.5rem
+            (5px) --}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="...">
+            <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
+                <h6 class="dropdown-header">Kurv</h6>
                 {{#each this.cart.items as |product|}}
-                    <div>
-                        <a href="#" class="dropdown-item">{{product.size}} | {{product.item.name}}</a>
-                    </div>
-                {{/each}}   
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-content">
-                <LinkTo @route="cart" class="button btn btn-block">Gå til kurv</LinkTo>
+                <div>
+                    <a href="#" class="dropdown-item">{{product.size}} | {{product.item.name}}
+                        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'remove' product}}type="button">X</button>
+                    </a>
+                </div>
+                {{/each}}
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-content">
+                    <LinkTo @route="cart" class="button btn btn-block">Gå til kurv</LinkTo>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </ul>
-    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.js"></script>
