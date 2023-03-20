@@ -1,17 +1,11 @@
 {{page-title "ProductPage"}}
-{{product-page object=model}}
 <div class="container-fluid">
     <div class="col-sm"></div>
     <div class="col-sm">
-        {{!-- {{#each @model as |item|}} --}}
+        {{#each @model as |item|}}
         <div class="w-800 mw-full">
             <div class="card p-0">
                 <div>
-                    <h2 class="content-title">
-                        <center>
-                            {{!-- {{item.title}} --}}
-                        </center>
-                    </h2>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm">
@@ -19,10 +13,7 @@
                                     <div class="w-400 mw-full">
                                         <div class="card">
                                             <h4>Gallery</h4>
-                                            {{!-- {{#each item.ingredients as |ingredient|}}
-                                                <hr>
-                                                <p>{{ingredient}}</p>
-                                            {{/each}} --}}
+                                            <img style="width: 20vw;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -31,26 +22,25 @@
                             <div class="col-sm">
                                 <div class="content">
                                     <div class="w-400 mw-full">
-                                        <div class="card">
-                                            <h4>Title</h4>
-                                            <h5>Pris</h5>
-                                            <p>Antal</p>
-                                            <p>Størrelse</p>
-                                            <button class="btn"> Tilføj til kurv</button>
-                                        </div>
+                                        <Product-page @item={{item}} />
                                     </div>
                                 </div>
                             </div>
                         </div>
                      <div class="card">
                         <h3>Description</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos facere iusto, maiores porro odit rem quo consequatur, impedit vel laboriosam doloremque harum iste deserunt nisi sapiente quod minima vitae.</p>
+                        <p>{{item.description}}</p>
                      </div>
+                     {{#each this.cart.items as |item|}}
+                        <div>
+                            <h4>{{item.name}}</h4>
+                        </div>
+                    {{/each}}
                     </div>
                 </div>
             </div>
         </div>
-        {{!-- {{/each}} --}}
+        {{/each}}
     </div>
     <div class="col-sm"></div>
 </div>

@@ -1,0 +1,14 @@
+{{#each @model as |item|}}
+<div class="row">
+    <div class="col-4">
+        Antal: <input style="width:20vw" id="{{item.id}}-amount" type="text" class="form-control" readonly value={{item.amount}} />
+    </div>
+    <div class="col-4">
+        Navn: <input style="width:20vw" id="{{item.id}}-name" type="text" class="form-control" readonly value={{item.name}} />
+    </div>
+    <div class="col-4"> <br>
+        <button class="btn" id="editButton" type="button" {{action 'edit' item}}>Rediger</button>
+        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'delete' item}} type="button">X</button>
+    </div>
+</div>
+{{/each}}

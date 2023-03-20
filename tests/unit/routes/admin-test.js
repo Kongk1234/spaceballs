@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'spaceballs/tests/helpers';
 
-module('Unit | Route | product-page', function (hooks) {
+module('Unit | Route | admin', function (hooks) {
   setupTest(hooks);
 
   test('it exists', function (assert) {
-    let route = this.owner.lookup('route:product-page');
+    let route = this.owner.lookup('route:admin');
     assert.ok(route);
   });
 });
