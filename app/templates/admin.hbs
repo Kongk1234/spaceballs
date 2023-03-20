@@ -1,0 +1,20 @@
+{{page-title "Admin"}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <h5 class="sidebar-title">General</h5>
+                    <div class="sidebar-divider"></div>
+                    <LinkTo @route="admin" @query={{hash page=1 }} class="sidebar-link">Ordre</LinkTo>
+                    <LinkTo @route="admin" @query={{hash page=2 }} class="sidebar-link">Produkter</LinkTo>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <Admin @model={{@model}}/>
+        </div>
+    </div>
+</div>
+{{outlet}}

@@ -1,1 +1,13 @@
+<div class="card">
+    <h4>{{@item.name}}</h4>
+    <h5>{{@item.price}} kr.</h5>
+    <Input type="text" class="form-control" placeholder="Antal" @value={{this.amount}} /> <br>
+    <select class="form-control" id="size-select">
+        <option value="" selected="selected" disabled="disabled">Vælg størrelse</option>
+        {{#each @item.sizes as |size|}}
+        <option value={{size}}>{{size}}</option>
+        {{/each}}
+    </select> <br>
+    <button type="button" class="btn" {{action 'add' @item}}>Tilføj til kurv</button>
+</div>
 {{yield}}

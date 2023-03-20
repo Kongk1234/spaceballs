@@ -1,29 +1,22 @@
-<div class="navbar-content">
-    <button class="btn btn-action fa fa-bars" id="toggle-sidebar-btn" type="button" onclick="halfmoon.toggleSidebar()">
-    </button>
-</div>
-
-<LinkTo @route="Index" class="button navbar-brand">
-    Spaceballs
-</LinkTo>
+<LinkTo @route="Index" class="button navbar-brand">Spaceballs</LinkTo>
 
 <ul class="navbar-nav ml-auto">
-    <!-- Dropdown that can be toggled by both hover and clicks on the toggle -->
+    {{!-- Dropdown that can be toggled by both hover and clicks on the toggle --}}
     <div class="dropdown toggle-on-hover">
     <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
-        Kurv <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true" style="visibility:hidden;"> hallloooo</i> <!-- ml-5 = margin-left: 0.5rem (5px) -->
+        Kurv <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true" style="visibility:hidden;"> hallloooo</i> {{!-- ml-5 = margin-left: 0.5rem (5px) --}}
     </button>
     <div class="dropdown-menu" aria-labelledby="...">
         <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
-            <h6 class="dropdown-header">Header</h6>
-                {{#each this.cart.itemList as |item|}}
+            <h6 class="dropdown-header">Kurv</h6>
+                {{#each this.cart.items as |product|}}
                     <div>
-                        <a href="#" class="dropdown-item">{{item.name}}</a>
+                        <a href="#" class="dropdown-item">{{product.size}} | {{product.item.name}}</a>
                     </div>
-                {{/each}}
+                {{/each}}   
             <div class="dropdown-divider"></div>
             <div class="dropdown-content">
-                <button class="btn btn-block" type="button">Button</button>
+                <LinkTo @route="cart" class="button btn btn-block">Gå til kurv</LinkTo>
             </div>
         </div>
         </div>

@@ -13,6 +13,7 @@
                                     <div class="w-400 mw-full">
                                         <div class="card">
                                             <h4>Gallery</h4>
+                                            <img style="width: 20vw;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -21,18 +22,7 @@
                             <div class="col-sm">
                                 <div class="content">
                                     <div class="w-400 mw-full">
-                                        <div class="card">
-                                            <h4>{{item.name}}</h4>
-                                            <h5>{{item.price}} kr.</h5>
-                                            <input type="text" class="form-control" placeholder="Antal"> <br>
-                                            <select class="form-control" id="select-1">
-                                                <option value="" selected="selected" disabled="disabled">Vælg størrelse</option>
-                                                {{#each item.sizes as |size|}}
-                                                    <option value="small">{{size}}</option>
-                                                {{/each}}
-                                            </select> <br>
-                                            <button class="btn" id="addCart" type="button" {{on "click" this.addToCart}}> Tilføj til kurv</button>
-                                        </div>
+                                        <Product-page @item={{item}} />
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +31,7 @@
                         <h3>Description</h3>
                         <p>{{item.description}}</p>
                      </div>
-                     {{#each this.cart.itemList as |item|}}
+                     {{#each this.cart.items as |item|}}
                         <div>
                             <h4>{{item.name}}</h4>
                         </div>
