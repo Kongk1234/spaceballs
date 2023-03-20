@@ -38,7 +38,6 @@ export default class NavigationComponent extends Component {
       products: this.cart.items,
       totalprice: parseFloat(totalprice)
     };
-    console.log(data);
     // const response = await fetch(
     //     `https://api.theredwiking.com/recipe/${id}/comment`,
     //     {
