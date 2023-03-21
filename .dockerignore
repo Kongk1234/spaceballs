@@ -1,0 +1,8 @@
+node_modules
+tests
+.editorconfig
+.gitignore
+.git
+.github
+.env
+README.md

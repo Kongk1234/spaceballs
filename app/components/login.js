@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class FormComponent extends Component {
-  url = 'https://svend.theredwiking.com/auth/login';
+  url = 'https://svend.theredwiking.com/api/auth/login';
   @tracked Password = '';
   @tracked Email = '';
   @service router;
