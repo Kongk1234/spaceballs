@@ -10,6 +10,10 @@
     </div>
     <div class="col-4">
         Kategori: <Input style="width:20vw" type="number" class="form-control" @value={{this.category}} /> <br>
+        <div class="custom-file">
+            <input type="file" id="image" onchange={{this.baseEncode}}>
+            <label for="image">Choose a file</label>
+        </div> <br>
         <button class="btn" id="editButton" type="button" {{action 'create' }}>Opret</button>
     </div>
 </div>

@@ -3,9 +3,9 @@
         {{#each @products as |item|}}
         <div class="w-300 mw-full"> {{!-- w-400 = width: 40rem (400px), mw-full = max-width: 100% --}}
             <div class="card p-0"> {{!-- p-0 = padding: 0 --}}
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" class="img-fluid rounded-top" alt="...">
+                <img src={{item.image}} class="img-fluid rounded-top" alt="...">
                 <div class="content">
-                    <p>{{item.category_id}}</p>
+                    <p>Kategori: {{item.category_id}}</p>
                     <h2 class="content-title">
                         <LinkTo @route="productPage" @query={{hash id=item.id}} class="button nav-link">{{item.name}}</LinkTo>
                     </h2>

@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+let productImage = ''
+
 export default class NavigationComponent extends Component {
 
   @tracked amount = '';
@@ -36,6 +38,16 @@ export default class NavigationComponent extends Component {
     } else {
       return false;
     }
+  }
+
+
+  @action baseEncode(element) {
+    let file = element.target.files[0];
+    let reader = new FileReader();
+    reader.onloadend = function () {
+      productImage = reader.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   @action async edit(item) {
@@ -74,7 +86,7 @@ export default class NavigationComponent extends Component {
         } else {
           console.log('fuck');
         }
-      //location.reload();
+      location.reload();
     });
   }
 
@@ -110,7 +122,8 @@ export default class NavigationComponent extends Component {
       price: parseFloat(this.price),
       name: this.name,
       amount: parseInt(this.amount),
-      category: parseInt(this.category)
+      category: parseInt(this.category),
+      image: productImage
     }
     console.log(item);
       const response = await fetch(
@@ -128,6 +141,6 @@ export default class NavigationComponent extends Component {
       } else {
         console.log('fuck');
       }
-    //location.reload();
+    location.reload();
   }
 }

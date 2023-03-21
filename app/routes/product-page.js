@@ -7,7 +7,7 @@ export default class ProductPageRoute extends Route {
     );
     let parsed = await response.json();
     console.log(parsed);
-
+    parsed[0].image = "data:image/png;base64," + parsed[0].image
     return parsed;
   }
 }
