@@ -19,13 +19,12 @@ export default class NavigationComponent extends Component {
   }
 
   @action async onPayment() {
-    let totalprice = 0
+    let totalprice = 0;
 
-    this.cart.items.forEach(element => {
-      totalprice+= element.item.price  * element.item.amount
+    this.cart.items.forEach((element) => {
+      totalprice += element.item.price * element.item.amount;
     });
 
-    console.log(this.firstName);
     const data = {
       firstname: this.firstName,
       lastName: this.lastName,
@@ -36,7 +35,7 @@ export default class NavigationComponent extends Component {
       date: this.date,
       controlNumber: this.controlNumber,
       products: this.cart.items,
-      totalprice: parseFloat(totalprice)
+      totalprice: parseFloat(totalprice),
     };
     // const response = await fetch(
     //     `https://api.theredwiking.com/recipe/${id}/comment`,
