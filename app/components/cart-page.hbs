@@ -4,18 +4,21 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-2"></div>
-                <div class="col-4">
-                    <Input type="text" class="form-control" placeholder="Fornavn" @value={{this.firstName}}/>
-                    <Input type="text" class="form-control" placeholder="Efternvan" @value={{this.lastName}}/>
-                    <Input type="number" class="form-control" placeholder="Tlf." @value={{this.phoneNumber}}/>
-                    <Input type="email" class="form-control" placeholder="Mail" @value={{this.mail}}/>
-                    <Input type="text" class="form-control" placeholder="Adresse"@value={{this.address}}/>
+                <div class="col-4"> <br> 
+                    <Input type="text" required class="form-control" placeholder="Fornavn" @value={{this.firstName}}/>
+                    <Input type="text" required class="form-control" placeholder="Efternvan" @value={{this.lastName}}/>
+                    <Input type="number" min="7" max="8" required class="form-control" placeholder="Tlf." @value={{this.phoneNumber}}/>
+                    <Input type="email" required class="form-control" placeholder="Mail" @value={{this.mail}}/>
+                    <Input type="text" required class="form-control" placeholder="Adresse"@value={{this.address}}/>
                 </div>
                 <div class="col-6">
                     <div class="card">
-                        {{#each @products as |product|}}
+                        {{#each @products.items as |product|}}
                         <p>Antal: {{product.amount}} | Navn: {{product.item.name}} | Størrelse: {{product.size}} | Enkelt pris:{{product.item.price}}</p>
                         <hr>
+                        {{/each}}
+                        {{#each @products.total as |product|}}
+                            <p id="endPrice">Samlet pris: {{product}}kr.</p>
                         {{/each}}
                     </div>
                 </div>

@@ -8,12 +8,13 @@
                     <div class="sidebar-divider"></div>
                     <LinkTo @route="admin" @query={{hash page=1 }} class="sidebar-link">Ordre</LinkTo>
                     <LinkTo @route="admin" @query={{hash page=2 }} class="sidebar-link">Produkter</LinkTo>
+                    <LinkTo @route="admin" @query={{hash page=3 }} class="sidebar-link">Opret produkt</LinkTo>
                     <br />
                 </div>
             </div>
         </div>
         <div class="col-9">
-            <Admin @model={{@model}}/>
+            <Admin @model={{@model}} />
         </div>
     </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="product">
     <div class="d-flex flex-row" style="flex-wrap: wrap; display:flex; justify-content:center">
         {{#each @products as |item|}}
-        <div class="w-300 mw-full"> <!-- w-400 = width: 40rem (400px), mw-full = max-width: 100% -->
-            <div class="card p-0"> <!-- p-0 = padding: 0 -->
+        <div class="w-300 mw-full"> {{!-- w-400 = width: 40rem (400px), mw-full = max-width: 100% --}}
+            <div class="card p-0"> {{!-- p-0 = padding: 0 --}}
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" class="img-fluid rounded-top" alt="...">
                 <div class="content">
                     <p>{{item.category_id}}</p>

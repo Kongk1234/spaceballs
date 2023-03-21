@@ -1,14 +1,56 @@
+{{#if this.checkUrl}}
+<div class="row">
+    <div class="col-4">
+        Antal: <Input style="width:20vw" type="text" class="form-control" @value={{this.amount}} />
+        Beskrivelse: <Input style="width:20vw" type="number" class="form-control" @value={{this.description}} />
+    </div>
+    <div class="col-4">
+        Navn: <Input style="width:20vw" type="text" class="form-control" @value={{this.name}} />
+        Pris: <Input style="width:20vw" type="number" class="form-control" @value={{this.price}} />
+    </div>
+    <div class="col-4">
+        Kategori: <Input style="width:20vw" type="number" class="form-control" @value={{this.category}} /> <br>
+        <button class="btn" id="editButton" type="button" {{action 'create' }}>Opret</button>
+    </div>
+</div>
+{{/if}}
+
+{{#if this.checkUrl2}}
 {{#each @model as |item|}}
 <div class="row">
     <div class="col-4">
-        Antal: <input style="width:20vw" id="{{item.id}}-amount" type="text" class="form-control" readonly value={{item.amount}} />
+        Antal: <input style="width:20vw" id="{{item.id}}-amount" type="text" class="form-control" readonly
+            value={{item.amount}} />
+        Beskrivelse: <input style="width:20vw" id="{{item.id}}-description" type="text" class="form-control" readonly
+            value={{item.description}} />
     </div>
     <div class="col-4">
-        Navn: <input style="width:20vw" id="{{item.id}}-name" type="text" class="form-control" readonly value={{item.name}} />
+        Navn: <input style="width:20vw" id="{{item.id}}-name" type="text" class="form-control" readonly
+            value={{item.name}} />
+        Pris: <input style="width:20vw" id="{{item.id}}-price" type="text" class="form-control" readonly
+            value={{item.price}} />
     </div>
-    <div class="col-4"> <br>
+    <div class="col-4">
+        Kategori: <input style="width:20vw" id="{{item.id}}-category_id" type="text" class="form-control" readonly
+            value={{item.category_id}} /> <br>
         <button class="btn" id="editButton" type="button" {{action 'edit' item}}>Rediger</button>
-        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'delete' item}} type="button">X</button>
+        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'delete' item}}
+            type="button">X</button>
     </div>
 </div>
+<hr>
 {{/each}}
+{{/if}}
+
+{{#if this.checkUrl1}}
+{{#each @model as |item|}}
+<div class="row">
+    <div class="col-8">
+        <p>Ordre id: {{item.id}} | Status: {{item.status}} | Oprettet: {{item.created_at}} | Pris
+            {{item.total_price}}kr.</p>
+    </div>
+</div>
+<hr>
+{{/each}}
+
+{{/if}}
