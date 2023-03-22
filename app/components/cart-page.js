@@ -11,9 +11,7 @@ export default class NavigationComponent extends Component {
   @tracked phoneNumber;
   @tracked mail;
   @tracked address;
-  @tracked cartNumber;
-  @tracked date;
-  @tracked controlNumber;
+
   async model() {
     return this.cart.items;
   }
@@ -31,27 +29,24 @@ export default class NavigationComponent extends Component {
       phoneNumber: this.phoneNumber,
       mail: this.mail,
       address: this.address,
-      cartNUmber: this.cartNumber,
-      date: this.date,
-      controlNumber: this.controlNumber,
       products: this.cart.items,
       totalprice: parseFloat(totalprice),
     };
-    // const response = await fetch(
-    //     `https://api.theredwiking.com/recipe/${id}/comment`,
-    //     {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization: `Bearer ${token}`,
-    //     },
-    //     body: JSON.stringify(data),
-    //     }
-    // );
-    // if (response.ok) {
-    //     console.log('yes');
-    // } else {
-    //     console.log('fuck');
-    // }
+    const response = await fetch(
+        `https://svend.theredwiking.com/order`,
+        {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+        }
+    );
+    if (response.ok) {
+        console.log('yes');
+    } else {
+        console.log('fuck');
+    }
   }
 }
