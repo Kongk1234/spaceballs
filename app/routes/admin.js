@@ -1,8 +1,6 @@
 import Route from '@ember/routing/route';
 import Router from '../router';
-import {
-  inject as service
-} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 
 export default class AdminRoute extends Route {
@@ -49,7 +47,7 @@ export default class AdminRoute extends Route {
       let response = await fetch(
         `https://svend.theredwiking.com/api/product/all`
       );
-      if (response == 200) {
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
