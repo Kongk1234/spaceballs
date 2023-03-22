@@ -2,7 +2,6 @@ import Route from '@ember/routing/route';
 import Router from '../router';
 import { inject as service } from '@ember/service';
 
-
 export default class AdminRoute extends Route {
   @service router;
 
@@ -24,13 +23,13 @@ export default class AdminRoute extends Route {
 
   async model(params) {
     if (params.page == 1 && this.showAdmin) {
-
       let cookies = document.cookie.split('; ');
       let result = cookies.filter((word) => word.includes('auth='));
       let token = result[0].split('auth=')[1];
 
       let response = await fetch(
-        `https://svend.theredwiking.com/api/order/all`, {
+        `https://svend.theredwiking.com/api/order/all`,
+        {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
@@ -54,7 +53,9 @@ export default class AdminRoute extends Route {
       }
       return;
     } else if (params.page != 4 && this.showAdmin) {
-      let response = await fetch(`https://svend.theredwiking.com/api/product/1`);
+      let response = await fetch(
+        `https://svend.theredwiking.com/api/product/1`
+      );
       if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);

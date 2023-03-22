@@ -12,4 +12,6 @@ Router.map(function () {
   this.route('cart');
   this.route('login');
   this.route('admin');
+  this.route('navigation');
+  this.route('category');
 });

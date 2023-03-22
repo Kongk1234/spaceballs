@@ -27,7 +27,7 @@ export default class FormComponent extends Component {
       document.cookie = `auth=${json.token}; path=/; expires=0;`;
       this.router.transitionTo('admin');
     } else {
-      location.reload()
+      location.reload();
       //create error message and route user back to login
     }
   }
