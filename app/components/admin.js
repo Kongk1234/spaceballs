@@ -72,7 +72,7 @@ export default class NavigationComponent extends Component {
       item.category = item.category_id
       console.log(item);
         const response = await fetch(
-          `https://svend.theredwiking.com/product/`+item.id, {
+          `https://svend.theredwiking.com/api/product/`+item.id, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export default class NavigationComponent extends Component {
     let token = result[0].split('auth=')[1];
 
       const response = await fetch(
-        `https://svend.theredwiking.com/products/`+item.id, {
+        `https://svend.theredwiking.com/api/products/`+item.id, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export default class NavigationComponent extends Component {
     }
     console.log(item);
       const response = await fetch(
-        `https://svend.theredwiking.com/product/`, {
+        `https://svend.theredwiking.com/api/product/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

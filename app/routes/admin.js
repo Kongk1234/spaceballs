@@ -1,8 +1,6 @@
 import Route from '@ember/routing/route';
 import Router from '../router';
-import {
-  inject as service
-} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 
 export default class AdminRoute extends Route {
@@ -32,14 +30,14 @@ export default class AdminRoute extends Route {
       let token = result[0].split('auth=')[1];
 
       let response = await fetch(
-        `https://svend.theredWiking.com/order/all`, {
+        `https://svend.theredwiking.com/api/order/all`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      if (response == 200) {
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
@@ -47,17 +45,17 @@ export default class AdminRoute extends Route {
       return;
     } else if (params.page == 2 && this.showAdmin) {
       let response = await fetch(
-        `https://svend.theredWiking.com/product/all`
+        `https://svend.theredwiking.com/api/product/all`
       );
-      if (response == 200) {
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
       }
       return;
     } else if (params.page != 4 && this.showAdmin) {
-      let response = await fetch(`https://svend.theredWiking.com/product/1`);
-      if (response == 200) {
+      let response = await fetch(`https://svend.theredwiking.com/api/product/1`);
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
