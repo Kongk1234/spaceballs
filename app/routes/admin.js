@@ -37,7 +37,7 @@ export default class AdminRoute extends Route {
           },
         }
       );
-      if (response == 200) {
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
@@ -55,7 +55,7 @@ export default class AdminRoute extends Route {
       return;
     } else if (params.page != 4 && this.showAdmin) {
       let response = await fetch(`https://svend.theredwiking.com/api/product/1`);
-      if (response == 200) {
+      if (response.status == 200) {
         let parsed = await response.json();
         console.log(parsed);
         return parsed;
