@@ -1,6 +1,25 @@
 <LinkTo @route="Index" class="button navbar-brand">Spaceballs</LinkTo>
 
 <ul class="navbar-nav ml-auto">
+    <div class="dropdown toggle-on-hover">
+        <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
+            Kategorier <i class="fa fa-angle-down ml-5 fa-solid fa-cart-shopping" aria-hidden="true"
+                style="visibility:hidden;">halllo</i> {{!-- ml-5 = margin-left: 0.5rem
+            (5px) --}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="...">
+            <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
+                <h6 class="dropdown-header">Kurv</h6>
+                {{#each @products as |product|}}
+                    <div>
+                        <LinkTo @route="category"  @query={{hash category=product.category_id}} class="button btn btn-block">{{product.category_id}}</LinkTo>
+                    </div>
+                {{/each}}
+                <div class="dropdown-divider"></div>
+            </div>
+        </div>
+    </div>
+
     {{!-- Dropdown that can be toggled by both hover and clicks on the toggle --}}
     <div class="dropdown toggle-on-hover">
         <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
@@ -14,7 +33,8 @@
                 {{#each this.cart.items as |product|}}
                 <div>
                     <a href="#" class="dropdown-item">{{product.size}} | {{product.item.name}}
-                        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'remove' product}}type="button">X</button>
+                        <button class="btn" id="deleteButton" style="background-color: red;" {{action 'remove'
+                            product}}type="button">X</button>
                     </a>
                 </div>
                 {{/each}}

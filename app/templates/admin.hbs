@@ -6,10 +6,9 @@
                 <div class="sidebar-menu">
                     <h5 class="sidebar-title">General</h5>
                     <div class="sidebar-divider"></div>
-                    <LinkTo @route="admin" @query={{hash page=1 }} class="sidebar-link">Ordre</LinkTo>
-                    <LinkTo @route="admin" @query={{hash page=2 }} class="sidebar-link">Produkter</LinkTo>
-                    <LinkTo @route="admin" @query={{hash page=3 }} class="sidebar-link">Opret produkt</LinkTo>
-                    <br />
+                    <a href="/admin?page={{1}}" class="sidebar-link">Ordre</a>
+                    <a href="/admin?page={{2}}" class="sidebar-link">Produkter</a> 
+                    <a href="/admin?page={{3}}" class="sidebar-link">Opret produkt</a> 
                 </div>
             </div>
         </div>

@@ -5,17 +5,18 @@
             <div class="card p-0"> {{!-- p-0 = padding: 0 --}}
                 <img src={{item.image}} class="img-fluid rounded-top" alt="...">
                 <div class="content">
-                    <p>Kategori: {{item.category_id}}</p>
+                    <p>
+                        <LinkTo @route="category" @query={{hash category=item.category_id}} class="button nav-link">Kategori: {{item.category_id}}</LinkTo>
+                    </p>
                     <h2 class="content-title">
                         <LinkTo @route="productPage" @query={{hash id=item.id}} class="button nav-link">{{item.name}}</LinkTo>
                     </h2>
                     <p class="text-muted">
-                        <p>{{item.price}} kr.</p>
+                    <p>{{item.price}} kr.</p>
                     </p>
                 </div>
             </div>
         </div>
-
         {{/each}}
     </div>
 </div>
