@@ -9,7 +9,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="...">
             <div class="dropdown-menu" aria-labelledby="dropdown-toggle-btn-1">
-                <h6 class="dropdown-header">Kurv</h6>
+                <h6 class="dropdown-header">Kategori</h6>
                 {{#each @products as |product|}}
                     <div>
                         <LinkTo @route="category"  @query={{hash category=product.category_id}} class="button btn btn-block">{{product.category_id}}</LinkTo>
