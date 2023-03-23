@@ -1,7 +1,13 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { service } from '@ember/service';
+import {
+  tracked
+} from '@glimmer/tracking';
+import {
+  action
+} from '@ember/object';
+import {
+  service
+} from '@ember/service';
 
 export default class NavigationComponent extends Component {
   @service('shopping-cart') cart;
@@ -20,7 +26,7 @@ export default class NavigationComponent extends Component {
     let totalprice = 0;
 
     this.cart.items.forEach((element) => {
-      totalprice += element.item.price * element.item.amount;
+      totalprice += element.item.price * element.amount;
     });
 
     const data = {
@@ -30,23 +36,24 @@ export default class NavigationComponent extends Component {
       mail: this.mail,
       address: this.address,
       products: this.cart.items,
-      totalprice: parseFloat(totalprice),
+      totalPrice: parseFloat(totalprice),
     };
+
     const response = await fetch(
-        `https://svend.theredwiking.com/order`,
-        {
+      `https://svend.theredwiking.com/api/order`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-        }
+      }
     );
     if (response.ok) {
-        console.log('yes');
+      let parsed = await response.json()
+      window.open(parsed.url, '_blank');
+      console.log('yes');
     } else {
-        console.log('fuck');
+      console.log('fuck');
     }
   }
 }
